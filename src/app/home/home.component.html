@@ -1,0 +1,6 @@
+<div>
+  <h1>Boards</h1>
+  <div *ngFor="let board of boards">
+    <a [routerLink]="'boards/' + board.name">{{board.name}} - {{board.title}}</a>
+  </div>
+</div>

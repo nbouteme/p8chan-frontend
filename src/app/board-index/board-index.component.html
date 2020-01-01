@@ -1,0 +1,7 @@
+<h1>/{{board.name}}/ - {{board.title}}</h1>
+<hr>
+<app-post-form></app-post-form>
+<hr>
+<div *ngFor="let thread of threads">
+  {{thread.comment}}
+</div>
