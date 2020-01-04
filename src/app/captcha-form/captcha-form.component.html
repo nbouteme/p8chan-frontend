@@ -1,0 +1,13 @@
+<div *ngIf="!this.canpost">
+    <div [innerHTML]="capsvg"></div>
+    <span>
+        <input [(ngModel)]="ans">
+        <button (click)="onClick()">Verify</button>
+    </span>
+</div>
+<div *ngIf="this.canpost">
+    You can post without filling out another captcha.
+</div>
+<div id="err" *ngIf="this.error">
+    {{error}}
+</div>

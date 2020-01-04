@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ChanService } from '../chan.service';
 import { Board } from 'src/apiv1';
 
-
 type fff = Omit<{f:number}, 'f'>;
 
 @Component({

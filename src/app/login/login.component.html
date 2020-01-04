@@ -1,0 +1,4 @@
+<input type="text" [(ngModel)]="ident" placeholder="Username">
+<input type="password" [(ngModel)]="pass" placeholder="Password">
+<button (click)="doLogin()">Login</button>
+<span *ngIf="error" class="error">{{error}}</span>

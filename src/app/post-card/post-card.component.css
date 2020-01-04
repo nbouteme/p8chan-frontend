@@ -1,0 +1,56 @@
+.post {
+    background-color: #f0e0d6;
+    border: 1px solid #d9bfb7;
+    border-left: none;
+    border-top: none;
+    display: table;
+    padding: 2px;
+    margin: 4px;
+}
+
+.post:target {
+    background: #f0c0b0!important;
+    border: 1px solid #d99f91!important;
+    border-left: none!important;
+    border-top: none!important;
+    padding: 2px;
+}
+
+.info {
+    width: 100%;
+}
+
+.info span {
+    margin-right: 4px;
+}
+
+.name {
+    color: #117743;
+    font-weight: 700;
+}
+
+blockquote {
+    display: block;
+}
+
+.clickable {
+    text-decoration: none;
+}
+
+.clickable:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.thumb {
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+
+.trip {
+    color: #117743;
+}
+

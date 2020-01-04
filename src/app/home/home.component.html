@@ -1,6 +1,9 @@
-<div>
+<div class="home">
   <h1>Boards</h1>
+  <app-log-link></app-log-link>
   <div *ngFor="let board of boards">
-    <a [routerLink]="'boards/' + board.name">{{board.name}} - {{board.title}}</a>
+    <h2>
+      <a [routerLink]="'boards/' + board.name">/{{board.name}}/ - {{board.title}}</a>
+    </h2>
   </div>
 </div>

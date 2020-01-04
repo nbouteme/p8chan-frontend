@@ -1,3 +1,21 @@
-<p>
-  thread-card works!
-</p>
+<hr>
+<div class="thread" *ngIf="opening">
+  <app-quick-reply (closed)="onClose()" [resto]="opening.id" [event]="event"></app-quick-reply>
+  <div class="op">
+    <div>
+      <div>File: <a [attr.href]="'/api/img/' + board + '/' + opening.date" target="_blank">{{opening.fn}}</a>
+        ({{opening.fs / 1024 | number:'1.0-0'}} KB, {{opening.fw}}x{{opening.fh}})
+      </div>
+      <a [attr.href]="'/api/img/' + board + '/' + opening.date" target="_blank">
+        <img [attr.src]="'/api/img/' + board + '/thumb/' + opening.date">
+      </a>
+    </div>
+    <app-post-info [post]="opening" (selection)="onSelect($event)" [op]="true" [active]="active"></app-post-info>
+    <blockquote [innerHtml]="opening.comment | postformat:opening.id:board">
+    </blockquote>
+  </div>
+  <div class="omitted" *ngIf="replies.length > 5">{{replies.length - 5}} replies omitted. <a [routerLink]="opening.id">Click here</a> to view</div>
+  <div *ngFor="let sample of active ? replies : (replies | slice:-5)">
+    <app-post-card (selection)="onSelect($event)" [post]="sample"></app-post-card>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+.info {
+    width: 100%;
+}
+
+.info span {
+    margin-right: 4px;
+}
+
+.name {
+    color: #117743;
+    font-weight: 700;
+}
+
+blockquote {
+    display: block;
+}
+
+.clickable {
+    text-decoration: none;
+}
+
+.clickable:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.thumb {
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+
+.trip {
+    color: #117743;
+}

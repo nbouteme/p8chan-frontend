@@ -18,3 +18,38 @@ body {
     width: 100%;
     height: 30%;
 }
+
+.quote {
+    color: #789922;
+}
+
+a, a:visited {
+    color: #00e;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red!important;
+}
+
+
+blockquote a {
+    color: #008;
+    text-decoration: underline;
+}
+
+blockquote a:hover {
+    cursor: pointer;
+}
+
+.error {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+
+.sub {
+    color: red;
+    font-weight: bold;
+}

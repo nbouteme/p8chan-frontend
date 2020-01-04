@@ -1,41 +1,25 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Board, PostData, ServerPostData } from 'src/apiv1';
+import { Board, Post, Thread } from 'src/apiv1';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChanService {
-
-  constructor() {
+  constructor(private http: HttpClient) {
 
   }
 
-  getBoards(): Observable<Board[]> {
-    return of<Board[]>([{
-      bump_limit: 150,
-      filesize_limit: 3505654,
-      name: 'g',
-      title: 'Technology',
-      worksafe: true
-    }])
+  getBoards() {
+    return this.http.get<Board[]>('/api/boards');
   }
 
-  getThreads(board: string): Observable<ServerPostData[]> {
-    return of<ServerPostData[]>([
-      { id: 4, comment: '32', subject: 'lel', date: 1516 },
-      { id: 5, comment: '32t45', subject: 'lel', date: 1517 },
-      { id: 6, comment: '352', subject: 'lel', date: 1518 },
-      { id: 7, comment: '3542', subject: 'lel', date: 1519 },
-    ])
+  getThreads(board: string) {
+    return this.http.get<Thread[]>(`/api/boards/${board}`);
   }
 
-  getThread(board: string, thread: number): Observable<ServerPostData[]> {
-    return of<ServerPostData[]>([
-      { id: 4, comment: '32', subject: 'lel', date: 1516 },
-      { id: 5, comment: '32t45', subject: 'lel', date: 1517 },
-      { id: 6, comment: '352', subject: 'lel', date: 1518 },
-      { id: 7, comment: '3542', subject: 'lel', date: 1519 },
-    ])
+  getThread(board: string, thread: number) {
+    return this.http.get<Post[]>(`/api/boards/${board}/${thread}`);
   }
 }

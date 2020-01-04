@@ -1,0 +1,21 @@
+<div *ngIf="post" class="info">
+    <input type="checkbox" value="merely decoration">
+    <span class="sub">
+        {{post.subject}}
+    </span>
+    <span>
+        <a *ngIf="post.email" [href]="'mailto:' + post.email">{{post.name || 'Anonymous'}}</a>
+        <span *ngIf="!post.email" class="name">{{post.name || 'Anonymous'}}</span>
+        <span *ngIf="post.trip" class="trip">!{{post.trip}}</span>
+    </span>
+    <span>{{post.date | date:'MM/dd/yy (MMM) HH:mm:ss'}}</span>
+    <span>
+        <a [routerLink]="'.'" [fragment]="'p' + post.id">No.</a>
+        <a (click)="selection.emit(post.id)">{{post.id}}</a>
+        <span *ngIf="op">
+            &nbsp;
+            <span *ngIf="!active">[<a [routerLink]="post.id">View</a>]</span>
+            <span *ngIf="active">[<a (click)="goBack()">Back</a>]</span>
+        </span>
+    </span>
+</div>

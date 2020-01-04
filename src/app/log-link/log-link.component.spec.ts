@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ThreadCardComponent } from './thread-card.component';
+import { LogLinkComponent } from './log-link.component';
 
-describe('ThreadCardComponent', () => {
-  let component: ThreadCardComponent;
-  let fixture: ComponentFixture<ThreadCardComponent>;
+describe('LogLinkComponent', () => {
+  let component: LogLinkComponent;
+  let fixture: ComponentFixture<LogLinkComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ThreadCardComponent ]
+      declarations: [ LogLinkComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ThreadCardComponent);
+    fixture = TestBed.createComponent(LogLinkComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

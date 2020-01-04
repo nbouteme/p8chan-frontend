@@ -1,3 +1,18 @@
-<p>
-  post-card works!
-</p>
+<div [attr.id]="'p' + post.id" class="post">
+  <app-post-info (selection)="selection.emit($event)" [post]="post"></app-post-info>
+  <div *ngIf="post.fn">
+    <div>
+      <span>
+        <!-- Non routé car nécessité d'être hotlinkable -->
+        File: <a href="/api/img/{{board}}/{{post.date}}" target="_blank">{{post.fn}}</a>
+        <a href="/api/img/{{board}}/{{post.date}}" download="{{post.fn}}"></a>
+        ({{post.fs / 1024 | number:'1.0-0'}} KB, {{post.fw}}x{{post.fh}})
+      </span>
+    </div>
+    <a class="thumb" href="/api/img/{{board}}/{{post.date}}" target="_blank">
+      <img src="/api/img/{{board}}/thumb/{{post.date}}">
+    </a>
+  </div>
+  <blockquote [innerHtml]="post.comment | postformat:thread:board">
+  </blockquote>
+</div>

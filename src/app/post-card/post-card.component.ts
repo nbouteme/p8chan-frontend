@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SecurityContext, Output, EventEmitter } from '@angular/core';
+import { Post } from 'src/apiv1';
+import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-post-card',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostCardComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  post: Post;
 
-  ngOnInit() {
+  @Input()
+  resto: number;
+
+  san: DomSanitizer;
+  constructor(private route: ActivatedRoute,
+    san: DomSanitizer
+  ) { 
+    this.san = san;
   }
 
+  @Output()
+  selection = new EventEmitter<number>();
+
+  board: string;
+  thread: number;
+
+  ngOnInit() {
+    this.board = this.route.snapshot.paramMap.get('name');
+    this.thread = (+this.route.snapshot.paramMap.get('tid')) || this.resto;
+  }
 }

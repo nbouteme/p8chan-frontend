@@ -1,0 +1,20 @@
+<div ngDraggable [handle]="Handle" *ngIf="visible" id="qr">
+    <div id="handle" #Handle>Reply to Thread No.<span>{{resto}}</span>
+        <img (click)="closed.emit()" alt="X" src="/assets/cross.png" title="Close Window">
+    </div>
+    <div>
+        <input [(ngModel)]="name" type="text" placeholder="Name">
+        <input [(ngModel)]="email" type="text" placeholder="Options">
+        <input [(ngModel)]="sub" type="text" placeholder="Subject">
+        <textarea [(ngModel)]="com" cols="48" rows="4" wrap="soft" placeholder="Comment">
+            </textarea>
+        <app-captcha-form></app-captcha-form>
+        <div>
+            <input #upfile accept=".png,.jpg,.jpeg,.gif,.webp" type="file" size="19" title="Shift + Click to remove the file">
+            <button (click)="onSubmit()">Submit</button>
+        </div>
+    </div>
+    <div *ngIf="error" class="error">
+        {{error}}
+    </div>
+</div>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChanService } from '../chan.service';
-import { ServerPostData, Board } from 'src/apiv1';
+import { Board, Thread } from 'src/apiv1';
 import { ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-board-index',
@@ -11,20 +12,17 @@ import { ActivatedRoute } from '@angular/router';
 export class BoardIndexComponent implements OnInit {
 
   constructor(
-    private route: ActivatedRoute,
-    private chanService: ChanService) {
-
+    private route: ActivatedRoute) {
   }
 
-  private threads: ServerPostData[];
-  private board: Board;
+  threads: Thread[];
+  board: Board;
   ngOnInit() {
-    let name = this.route.snapshot.paramMap.get('name');
-    this.chanService
-      .getThreads(name)
-      .subscribe(v => this.threads = v);
-    this.chanService
-      .getBoards()
-      .subscribe(v => this.board = v.find(e => e.name == name));
+//    let name = this.route.snapshot.paramMap.get('name');
+    this.route.data
+      .subscribe((v: { threads: Thread[], board: Board }) => {
+        this.threads = v.threads;
+        this.board = v.board;
+      });
   }
 }

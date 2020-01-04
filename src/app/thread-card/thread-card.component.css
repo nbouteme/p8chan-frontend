@@ -1,0 +1,17 @@
+.thread {
+    clear: both;
+    overflow: auto; /* clearfix hack */
+    margin-left: 20px;
+}
+
+.op img {
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+
+.omitted {
+    color: #777;
+}

@@ -1,0 +1,48 @@
+#qr {
+    display: grid;
+    background-color: wheat;
+    position: fixed;
+    border: 1px solid #d9bfb7;
+    border-left: none;
+    border-top: none;
+    position: absolute;
+    padding: 2px;
+    font-size: 10pt;
+}
+
+#qr>div:nth-child(2) {
+    display: grid;
+}
+
+#handle {
+    font-size: 10pt;
+    text-align: center;
+    margin-bottom: 1px;
+    padding: 0;
+    height: 18px;
+    line-height: 18px;
+    background-color: #ea8;
+    color: #800;
+    font-weight: 700;
+    border: 1px solid #800;
+    cursor: move !important;
+}
+
+textarea[wrap="soft"] {
+    min-width: 346px;
+    min-height: 72px;
+}
+
+#handle>img {
+    cursor: pointer;
+    margin-bottom: -4px;
+    float: right;
+}
+
+button {
+    float: right;
+}
+
+.app-captcha-form {
+    text-align: center;
+}

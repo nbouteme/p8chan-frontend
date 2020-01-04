@@ -1,7 +1,9 @@
-<h1>/{{board.name}}/ - {{board.title}}</h1>
+<h1 *ngIf="board">/{{board.name}}/ - {{board.title}}</h1>
 <hr>
-<app-post-form></app-post-form>
+<app-post-form [board]="board"></app-post-form>
 <hr>
-<div *ngFor="let thread of threads">
-  {{thread.comment}}
+<div *ngIf="threads">
+  <div *ngFor="let thread of threads | sort:'last_bump' | reverse">
+     <app-thread-card [op]="thread"></app-thread-card>
+  </div>
 </div>

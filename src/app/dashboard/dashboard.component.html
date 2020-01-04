@@ -1,0 +1,22 @@
+<!--  if role == admin  -->
+<h2>Create a new Board</h2>
+<div style="display: grid; width: 350px;">
+    <input [(ngModel)]="name" placeholder="Board name (eg. 'c')">
+    <input [(ngModel)]="title" placeholder="Board title (eg. 'Cute')">
+    
+    <label>
+        Worksafe?
+        <input type="checkbox" [(ngModel)]="worksafe">
+    </label>
+    
+    <label>
+        Filesize limit (bytes)
+        <input type="number" [(ngModel)]="filesize_limit">
+    </label>
+    
+    <label>
+        Bump limit
+        <input type="number" [(ngModel)]="bump_limit">
+    </label>
+    <button (click)="createBoard()">Create Board</button>
+</div>

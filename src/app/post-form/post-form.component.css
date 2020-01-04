@@ -2,6 +2,10 @@ td:first-child {
     background-color: #eeaa88;
 }
 
+h2 {
+    text-align: center;
+}
+
 #root {
     margin: 0 auto 0 auto;
     display: table;
